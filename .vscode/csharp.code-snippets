@@ -1,0 +1,45 @@
+{
+	// Place your snippets for csharp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"New Playwight Script": {
+		"prefix": "newPlay",
+		"body": [
+			"using System;",
+			"using System.Collections.Generic;",
+			"using System.Diagnostics;",
+			"using PlaywrightFrameworkTest;",
+			"using PlaywrightFrameworkTest.Automation;",
+			"using PlaywrightFrameworkTest.Automation.Common.Utilities;",
+			"using NUnit.Framework;",
+			"using Microsoft.Playwright;",
+			"\n",
+			"namespace PlaywrightFrameworkTest",
+			"{",
+			"\tpublic class ${TM_FILENAME_BASE} : Automation.Common.Automation",
+			"\t{",
+			"\t\t[Test]",
+			"\t\tpublic async Task CreateTestName()",
+			"\t\t{",
+			"\t\t\ttry",
+			"\t\t\t{",
+			"\t\t\t// Your script starts here ",
+			"\t\t\tawait Page.GotoAsync(\"https://playwright.dev/dotnet\");",
+			"",
+			"",
+			"\t\t\t}",
+			"\t\t\tcatch(Exception message)",
+			"\t\t\t{",
+			"\t\t\tDebug.WriteLine(message);",
+			"\t\t\tthrow;",
+			"\t\t\t}",
+			"\t\t}",
+			"\t}",
+			"}",
+		],
+		"description": "Create a new C# class with a constructor and method",
+		"isFileTemplate": true
+	}
+}
