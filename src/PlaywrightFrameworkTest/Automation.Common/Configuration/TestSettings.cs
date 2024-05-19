@@ -7,9 +7,7 @@ namespace PlaywrightFrameworkTest.Automation.Common.Configuration;
 
 public record TestSettings
 {
-    //Login address 
-    public string? LoginUrl { get; set; }
-
+    //Test Url
     public string? TestUrl { get; set; }
 
     //Gets and sets operation speed 
