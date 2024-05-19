@@ -11,15 +11,16 @@ using PlaywrightFrameworkTest.Automation.Common.Pages;
 
 namespace PlaywrightFrameworkTest
 {
-    public class SearchAdressTest : Automation.Common.Automation
+    public class ValidateAddressTest : Automation.Common.Automation
     {
         [Test]
         [TestCaseSource(typeof(DataProvider), nameof(DataProvider.SearchAddresses))]
         public async Task SearchAddressTest(string address)
         {
             var googleMapsPage = new GoogleMapsPage();
-            Debug.WriteLine($"Address: {address}");
             await googleMapsPage.SearchAddress(Page, address);
+            var validAdress = await googleMapsPage.ValidateAddress(Page, address);
+            Assert.That(validAdress, Is.True, "This is not a valid address");
         }
     }
 }
