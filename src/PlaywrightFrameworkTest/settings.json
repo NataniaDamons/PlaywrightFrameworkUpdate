@@ -1,8 +1,6 @@
 {
-    "LoginUrl": "https://login.microsoftonline.com/", //login url if necessary
-    "TestUrl": "https://Google.com", //Sute you want to bavigat to 
+    "TestUrl": "https://www.googlemaps.com/",//Sute you want to bavigat to 
     "OperationSpeed": 500,
-    "LoginParallelism": 3, 
     
     "Debugging": {
         "HeadlessMode": false
@@ -11,18 +9,6 @@
     "Viewport" : {
         "Width": 1400,
         "Height" : 900
-    },
-
-    "Accounts": [
-        
-        //Accounts that can be used 
-        // Comment out the ones that are not needed in your space 
-        {
-            "Name": "TestAccount",
-            "EmailAddress": "TestAccountEmail",
-            "Password": "TestAccountPassword"
-        }
-
-    ]
+    }
 }
 
