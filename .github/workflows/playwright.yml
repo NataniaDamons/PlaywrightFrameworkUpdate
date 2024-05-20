@@ -22,7 +22,6 @@ jobs:
       
     - name: Run Playwright tests
       run: npx playwright test src/PlaywrightFrameworkTest/Tests
-      working-directory: .PlaywrightFrameworkUpdate
       
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
