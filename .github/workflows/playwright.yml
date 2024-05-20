@@ -15,7 +15,7 @@ jobs:
      with:
        dotnet-version: '7.x'
    - name: Restore dependencies
-     run: dotnet restore PlaywrightFrameworkUpdate.sln
+     run: dotnet restore 
    - name: Build
      run: dotnet build --configuration Release PlaywrightFrameworkUpdate/PlaywrightFrameworkUpdate.sln
    - name: Test
