@@ -15,7 +15,7 @@ namespace PlaywrightFrameworkTest.Automation.Common
         protected IPage Page = null!;
         //Store the name of the current test 
         //This is useful for naming the traceviewer files
-        private string TestName => TestContext.CurrentContext.Test.Name;
+        private static string TestName => TestContext.CurrentContext.Test.Name;
         // Run ahead of each test
         // Creates a new page object... therefore you will be enforcing the GOTO on each of your test as the first
         [SetUp]
