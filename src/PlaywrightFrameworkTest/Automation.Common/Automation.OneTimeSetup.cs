@@ -12,7 +12,7 @@ public partial class Automation
     [OneTimeSetUp]
     public async Task SetUpGlobals()
     {
-        _settings = GetSettings<TestSettings>("settings");
+        _settings = GetSettings<TestSettings>("Settings");
         //Playwright
         _playwright = await Playwright.CreateAsync();
         //browser
