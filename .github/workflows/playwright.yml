@@ -17,9 +17,9 @@ jobs:
    - name: Restore dependencies
      run: dotnet restore 
    - name: Build
-     run: dotnet build --configuration Release PlaywrightFrameworkUpdate/PlaywrightFrameworkUpdate.sln
+     run: dotnet build 
    - name: Test
-     run: dotnet test --no-build --verbosity normal PlaywrightFrameworkUpdate/PlaywrightFrameworkUpdate.sln --logger:trx
+     run: dotnet test
    - name: Upload test results
      if: failure()
      uses: actions/upload-artifact@v2
