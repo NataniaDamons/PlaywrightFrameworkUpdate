@@ -1,31 +1,28 @@
-name: Playwright Tests
+name: .NET Tests
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+ push:
+   branches: [ main ]
+ pull_request:
+   branches: [ main ]
 jobs:
-  test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 18
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-      
-    - name: Run Playwright tests
-      run: npx playwright test src/PlaywrightFrameworkTest/Tests
-      
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+ build:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Checkout repository
+     uses: actions/checkout@v2
+   - name: Setup .NET
+     uses: actions/setup-dotnet@v3
+     with:
+       dotnet-version: '7.x'
+   - name: Restore dependencies
+     run: dotnet restore PlaywrightFrameworkUpdate/PlaywrightFrameworkUpdate.sln
+   - name: Build
+     run: dotnet build --configuration Release PlaywrightFrameworkUpdate/PlaywrightFrameworkUpdate.sln
+   - name: Test
+     run: dotnet test --no-build --verbosity normal PlaywrightFrameworkUpdate/PlaywrightFrameworkUpdate.sln --logger:trx
+   - name: Upload test results
+     if: failure()
+     uses: actions/upload-artifact@v2
+     with:
+       name: test-results
+       path: '**/TestResults/*.trx'
