@@ -14,12 +14,19 @@ jobs:
      uses: actions/setup-dotnet@v3
      with:
        dotnet-version: '7.x'
+       
    - name: Restore dependencies
      run: dotnet restore 
+     
    - name: Build
      run: dotnet build 
+
+   - name: install browser
+     run:  pwsh bin/Debug/net8.0/playwright.ps1 install
+      
    - name: Test
      run: dotnet test
+     
    - name: Upload test results
      if: failure()
      uses: actions/upload-artifact@v2
