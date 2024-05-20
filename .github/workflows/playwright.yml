@@ -14,15 +14,15 @@ jobs:
      uses: actions/setup-dotnet@v3
      with:
        dotnet-version: '7.x'
+
+   - name: install browser
+     run:  pwsh ./PlaywrightFrameworkUpdate/src/src/PlaywrightFrameworkTest/bin/Debug/net6.0/playwright.ps1 install 
        
    - name: Restore dependencies
      run: dotnet restore 
      
    - name: Build
      run: dotnet build 
-
-   - name: install browser
-     run:  pwsh playwright.ps1 install
       
    - name: Test
      run: dotnet test
