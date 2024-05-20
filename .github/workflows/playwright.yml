@@ -22,7 +22,7 @@ jobs:
      run: dotnet build 
 
    - name: install browser
-     run:  pwsh bin/Debug/net8.0/playwright.ps1 install
+     run:  pwsh bin/Debug/net6.0/playwright.ps1 install
       
    - name: Test
      run: dotnet test
