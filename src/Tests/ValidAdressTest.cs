@@ -14,7 +14,7 @@ namespace PlaywrightFrameworkTest
     public class ValidateAddressTest : Automation.Common.Automation
     {
         [Test]
-        [TestCaseSource(typeof(DataProvider), nameof(DataProvider.SearchAddresses))]
+        [TestCaseSource(typeof(ValidAddressDataProvider), nameof(ValidAddressDataProvider.SearchAddresses))]
         public async Task SearchAddressTest(string address)
         {
             var googleMapsPage = new GoogleMapsPage();

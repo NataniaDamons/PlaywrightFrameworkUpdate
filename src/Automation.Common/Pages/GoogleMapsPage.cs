@@ -20,6 +20,18 @@ namespace PlaywrightFrameworkTest.Automation.Common.Pages
             return searchBoxValue != null && address.Contains(searchBoxValue);
         }
 
+        public async Task SearchInvalidAddress(IPage page, string address)
+        {
+            await Assertions.Expect(page.GetByRole(AriaRole.Link, new() { Name = "Sign in" })).ToBeVisibleAsync(new() { Timeout = 1000 * 20 });
+            await page.GetByLabel("Search Google Maps").FillAsync(address);
+            await page.Keyboard.PressAsync("Enter");
+        }
 
-   }
+        public async Task<bool> ValidateinvalidAddress(IPage page, string address)
+        {
+            await Assertions.Expect(page.GetByText("Make sure your search is spelled correctly. Try adding a city, state, or zip cod")).ToBeVisibleAsync(new() { Timeout = 1000 * 20 });
+            var searchBoxValue = await page.TextContentAsync(".Q2vNVc");
+            return searchBoxValue != null && searchBoxValue.Contains(address);
+        }
+    }
 }
