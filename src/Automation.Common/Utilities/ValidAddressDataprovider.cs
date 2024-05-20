@@ -2,7 +2,7 @@
 namespace PlaywrightFrameworkTest.Automation.Common.Utilities
 {
     
-    public class DataProvider
+    public class ValidAddressDataProvider
     {
         public static IEnumerable<object[]>SearchAddresses()
         {
