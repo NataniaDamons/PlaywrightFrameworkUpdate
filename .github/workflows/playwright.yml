@@ -16,7 +16,7 @@ jobs:
        dotnet-version: '7.x'
 
    - name: install browser
-     run:  pwsh ../../../PlaywrightFrameworkUpdate/src/PlaywrightFrameworkTestbin/Debug/net6.0/playwright.ps1 install 
+     run:  pwsh ./PlaywrightFrameworkUpdate/src/PlaywrightFrameworkTestbin/Debug/net6.0/playwright.ps1 install 
        
    - name: Restore dependencies
      run: dotnet restore 
