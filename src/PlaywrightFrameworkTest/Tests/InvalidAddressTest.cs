@@ -22,5 +22,16 @@ namespace PlaywrightFrameworkTest
             var invalidAdress = await googleMapsPage.ValidateinvalidAddress(Page, address);
             Assert.That(invalidAdress, Is.True, "This is not a valid address");
         }
+
+        [Test]
+        [TestCaseSource(typeof(InvalidAddressDataProvider), nameof(InvalidAddressDataProvider.SpecialCharacterAddresses))]
+        public async Task SearchSpecialCharacterAddressTest(string address)
+        {
+            var googleMapsPage = new GoogleMapsPage();
+            await googleMapsPage.SearchInvalidAddress(Page, address);
+            var invalidAdress = await googleMapsPage.ValidateinvalidAddress(Page, address);
+            Assert.That(invalidAdress, Is.True, "This is not a valid address");
+        }
+
     }
 }
