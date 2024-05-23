@@ -6,9 +6,13 @@
         "HeadlessMode": false
     },
 
-    "Viewport" : {
+    "Viewport": {
         "Width": 1400,
-        "Height" : 900
+        "Height": 900
+    },
+
+    "Browser": {
+        "Type": "firefox" 
     }
 }
 

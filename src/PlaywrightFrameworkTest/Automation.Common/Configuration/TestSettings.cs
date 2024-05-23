@@ -18,4 +18,6 @@ public record TestSettings
 
     //Manage viewports
     public Viewport? Viewport  { get; set;}
+
+    public BrowserSettings? Browser { get; set; }
 }
