@@ -19,7 +19,7 @@ jobs:
      run: dotnet restore 
 
    - name: Install Playwright Browsers
-     run: pwsh bin/Debug/net8.0/playwright.ps1 install
+     run: pwsh ../bin/Debug/net8.0/playwright.ps1 install
      
    - name: Build
      run: dotnet build 
