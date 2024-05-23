@@ -16,13 +16,13 @@ jobs:
        dotnet-version: '7.x'
        
    - name: Restore dependencies
-     run: dotnet restore 
-
-   - name: Install Playwright Browsers
-     run: pwsh ../bin/Debug/net8.0/playwright.ps1 install
+     run: dotnet restore
      
    - name: Build
      run: dotnet build 
+
+   - name: Install Playwright Browsers
+     run: pwsh ../bin/Debug/net8.0/playwright.ps1 install
       
    - name: Test
      run: dotnet test
