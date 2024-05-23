@@ -8,6 +8,7 @@ using PlaywrightFrameworkTest.Automation.Common.Utilities;
 using System.Collections.Generic;
 using System.Diagnostics;
 using PlaywrightFrameworkTest.Automation.Common.Pages;
+using Microsoft.Playwright;
 
 namespace PlaywrightFrameworkTest
 {
@@ -19,6 +20,7 @@ namespace PlaywrightFrameworkTest
         {
             var googleMapsPage = new GoogleMapsPage();
             await googleMapsPage.SearchAddress(Page, address);
+            await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
             var validAdress = await googleMapsPage.ValidateAddress(Page, address);
             Assert.That(validAdress, Is.True, "This is not a valid address");
         }
