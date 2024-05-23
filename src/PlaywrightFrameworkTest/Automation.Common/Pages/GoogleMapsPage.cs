@@ -26,7 +26,7 @@ namespace PlaywrightFrameworkTest.Automation.Common.Pages
             await page.GetByLabel("Search Google Maps").FillAsync(address);
             await page.Keyboard.PressAsync("Enter");
         }
-
+  
         public async Task<bool> ValidateinvalidAddress(IPage page, string address)
         {
             await Assertions.Expect(page.GetByText("Make sure your search is spelled correctly. Try adding a city, state, or zip cod")).ToBeVisibleAsync(new() { Timeout = 1000 * 20 });

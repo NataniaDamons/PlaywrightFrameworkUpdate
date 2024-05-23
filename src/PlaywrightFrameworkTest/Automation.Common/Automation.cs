@@ -37,6 +37,8 @@ namespace PlaywrightFrameworkTest.Automation.Common
             );
             
             Page = await context.NewPageAsync();
+
+            //Start tracing
             await context.Tracing.StartAsync(new()
             {
                 Screenshots = true,

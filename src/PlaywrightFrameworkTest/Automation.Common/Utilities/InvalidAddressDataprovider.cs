@@ -14,6 +14,7 @@ namespace PlaywrightFrameworkTest.Automation.Common.Utilities
         {
            yield return new object[] { "#$%^&*()" };
            yield return new object[] { "!!!@@@###" }; 
+           yield return new object[] { "        " }; 
         }
     } 
 }
